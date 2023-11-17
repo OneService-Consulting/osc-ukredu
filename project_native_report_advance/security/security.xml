@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data noupdate="1">
+
+        <record model="ir.module.category" id="module_project_native_pdf_cat">
+            <field name="name">Project Native PDF</field>
+            <field name="sequence">7</field>
+        </record>
+
+        <record id="group_project_native_pdf_export" model="res.groups">
+            <field name="name">PDF export</field>
+            <field name="category_id" ref="module_project_native_pdf_cat"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+    </data>
+
+</odoo>
