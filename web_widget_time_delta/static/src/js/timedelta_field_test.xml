@@ -1,0 +1,75 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<templates>-->
+<!--    <t t-name="web_widget_time_delta.FieldTimeDelta">-->
+<!--&lt;!&ndash;        <span t-att-class="'oe_form_field '+widget.widget_class" t-att-style="widget.attrs.style">&ndash;&gt;-->
+<!--&lt;!&ndash;            <t t-if="widget.mode !== 'readonly'">&ndash;&gt;-->
+<!--&lt;!&ndash;                <input type="text"&ndash;&gt;-->
+<!--&lt;!&ndash;                       t-att-id="widget.id_for_label"&ndash;&gt;-->
+<!--&lt;!&ndash;                       t-att-tabindex="widget.attrs.tabindex"&ndash;&gt;-->
+<!--&lt;!&ndash;                       t-att-autofocus="widget.attrs.autofocus"&ndash;&gt;-->
+<!--&lt;!&ndash;                       t-att-placeholder="widget.attrs.placeholder"&ndash;&gt;-->
+<!--&lt;!&ndash;                       t-att-maxlength="widget.field.size"&ndash;&gt;-->
+<!--&lt;!&ndash;                       class="timedelta"&ndash;&gt;-->
+<!--&lt;!&ndash;                        />&ndash;&gt;-->
+<!--&lt;!&ndash;            </t>&ndash;&gt;-->
+<!--&lt;!&ndash;            <t t-if="widget.mode === 'readonly'">&ndash;&gt;-->
+<!--&lt;!&ndash;                <div/>&ndash;&gt;-->
+<!--&lt;!&ndash;                <span class="oe_form_char_content"></span>&ndash;&gt;-->
+<!--&lt;!&ndash;            </t>&ndash;&gt;-->
+<!--&lt;!&ndash;        </span>&ndash;&gt;-->
+<!--        <t t-if="props.readonly || props.notEditable">-->
+<!--            <div t-ref="readonlyElement" class="o_readonly" t-out="dateValue" />-->
+<!--        </t>-->
+<!--        <t t-else="">-->
+<!--            <DateTimePicker date="date" t-on-datetime-changed="onDateTimeChange"/>-->
+
+<!--            <div class="row p-5">-->
+<!--              <div class="col-sm-6">-->
+<!--                <div class="form-group">-->
+<!--                    <div class="input-group date" id="datetimepicker3" data-target-input="nearest">-->
+<!--                        <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker3"/>-->
+<!--                        <div class="input-group-append" data-target="#datetimepicker3" data-toggle="datetimepicker">-->
+<!--                            <div class="input-group-text"><i class="fa fa-clock-o"></i></div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--          </div>-->
+
+
+<!--        </t>-->
+<!--    </t>-->
+
+<!--</templates>-->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="web_widget_time_delta.FieldTimeDelta" owl="1">
+        <span t-if="props.readonly" t-esc="props.value"/>
+        <input t-else="" t-att-value="props.value" t-att-placeholder="props.placeholder" class="o_input"/>
+	</t>
+</templates>
+
+
+        <!--<?xml version="1.0" encoding="UTF-8" ?>-->
+        <!--<templates id="template" xml:space="preserve">-->
+
+        <!--    <t t-name="web_widget_markdown.MarkdownField" owl="1">-->
+        <!--        <t t-if="props.readonly || props.notEditable">-->
+        <!--            <div t-ref="readonlyElement" class="o_readonly" t-out="markupValue" />-->
+        <!--        </t>-->
+        <!--        <t t-else="">-->
+        <!--            <textarea t-ref="textarea" class="o_codeview" t-att-value="props.value" />-->
+        <!--            <t t-if="props.isTranslatable">-->
+        <!--                <span style="font-size: 15px; position: absolute; left: 22px; bottom: 5px;">-->
+        <!--                    <TranslationButton-->
+        <!--                        fieldName="props.name"-->
+        <!--                        record="props.record"-->
+        <!--                        updateField="props.update"-->
+        <!--                    />-->
+        <!--                </span>-->
+        <!--            </t>-->
+        <!--        </t>-->
+        <!--    </t>-->
+
+        <!--</templates>-->

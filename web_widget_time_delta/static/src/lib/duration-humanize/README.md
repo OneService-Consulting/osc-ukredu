@@ -6,12 +6,15 @@ Humanize Duration
 
 I have the time in milliseconds and I want it to become "30 minutes" or "3 days, 1 hour". Enter Humanize Duration!
 
-**This library is in maintenance mode. New languages and bug fixes will be added but no new features will be. If you're interested in helping out by taking over the project, please see [this GitHub issue](https://github.com/EvanHahn/HumanizeDuration.js/issues/120).**
+**This library is in maintenance mode. New languages and bug fixes will be added but no new features will be. If you're
+interested in helping out by taking over the project, please
+see [this GitHub issue](https://github.com/EvanHahn/HumanizeDuration.js/issues/120).**
 
 Basic usage
 -----------
 
-This package is available as *humanize-duration* on [npm](https://www.npmjs.com/package/humanize-duration) and Bower. You can also include the JavaScript file in the browser.
+This package is available as *humanize-duration* on [npm](https://www.npmjs.com/package/humanize-duration) and Bower.
+You can also include the JavaScript file in the browser.
 
 In the browser:
 
@@ -32,7 +35,8 @@ humanizeDuration(12000) // '12 seconds'
 Usage
 -----
 
-By default, Humanize Duration will humanize down to the second, and will return a decimal for the smallest unit. It will humanize in English by default.
+By default, Humanize Duration will humanize down to the second, and will return a decimal for the smallest unit. It will
+humanize in English by default.
 
 ```js
 humanizeDuration(3000)      // '3 seconds'
@@ -46,7 +50,8 @@ You can change the settings by passing options as the second argument:
 
 **language**
 
-Language for unit display (accepts an [ISO 639-1 code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) from one of the [supported languages](#supported-languages)).
+Language for unit display (accepts an [ISO 639-1 code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) from one
+of the [supported languages](#supported-languages)).
 
 ```js
 humanizeDuration(3000, { language: 'es' })  // '3 segundos'
@@ -82,7 +87,8 @@ humanizeDuration(1000000000000, { largest: 2 })  // '31 years, 8 month'
 
 **units**
 
-Array of strings to define which units are used to display the duration (if needed). Can be one, or a combination of any, of the following: `['y', 'mo', 'w', 'd', 'h', 'm', 's', 'ms']`
+Array of strings to define which units are used to display the duration (if needed). Can be one, or a combination of
+any, of the following: `['y', 'mo', 'w', 'd', 'h', 'm', 's', 'ms']`
 
 ```js
 humanizeDuration(3600000, { units: ['h'] })       // '1 hour'
@@ -92,7 +98,8 @@ humanizeDuration(3600000, { units: ['d', 'h'] })  // '1 hour'
 
 **round**
 
-Boolean value. Use `true` to [round](https://en.wikipedia.org/wiki/Rounding#Round_half_up) the smallest unit displayed (can be combined with `largest` and `units`).
+Boolean value. Use `true` to [round](https://en.wikipedia.org/wiki/Rounding#Round_half_up) the smallest unit displayed (
+can be combined with `largest` and `units`).
 
 ```js
 humanizeDuration(1200)                   // '1.2 seconds'
@@ -149,7 +156,8 @@ humanizeDuration(3602000, {
 
 ### Humanizers
 
-If you find yourself setting same options over and over again, you can create a *humanizer* that changes the defaults, which you can still override later.
+If you find yourself setting same options over and over again, you can create a *humanizer* that changes the defaults,
+which you can still override later.
 
 ```js
 var spanishHumanizer = humanizeDuration.humanizer({

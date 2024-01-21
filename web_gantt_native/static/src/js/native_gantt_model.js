@@ -200,6 +200,9 @@ return AbstractModel.extend({
 
         };
 
+
+
+
         return this._rpc({
                 model: this.modelName,
                 method: 'search_read',
@@ -211,11 +214,64 @@ return AbstractModel.extend({
             })
             .then(function (data) {
                 self.gantt.pager.limit = limit_view;
-                return self.on_data_loaded_count(data, n_group_bys);
+                return self._fetch_m2m_names(data, n_group_bys);
             });
 
     },
 
+    _fetch_m2m_names: function (data, n_group_bys) {
+        var self = this;
+
+        // Get the field name from n_group_bys
+        var fieldName = n_group_bys[0];
+
+        // Check if the field is a many2many field
+        var fieldInfo = this.fields_view.fields[fieldName];
+        var isM2M = fieldInfo && fieldInfo.type === 'many2many';
+
+        if (isM2M) {
+            // Extract the IDs of the m2m field
+            var m2mIds = _.flatten(_.map(data, function(res) { return res[fieldName]; }));
+
+            // Get the related model from the field definition
+            var relatedModel = fieldInfo.relation;
+
+            // Make an RPC call to get the names
+            return this._rpc({
+                model: relatedModel,
+                method: 'name_get',
+                args: [m2mIds],
+                context: this.gantt.contexts,
+            })
+            .then(function (names) {
+
+                //For many2many field, get name only for first record
+                // // Return many records, each one containing the ID and the name of the m2m field
+                // // Replace the IDs with an object containing the ID and the name in the data
+                _.each(data, function(res) {
+                    var result_name = [];
+                    _.each(res[fieldName], function(id, index) {
+                        var name = _.find(names, function(name) { return name[0] == id; })[1];
+                        // res[fieldName][index] = {id: id, name: name};
+                        result_name.push([id,name]);
+                    });
+                    if (result_name.length > 0){
+                        res[fieldName] = result_name[0];}
+                    else{
+                        res[fieldName] = [];
+                    }
+
+                });
+
+
+                // Continue with the existing flow
+                return self.on_data_loaded_count(data, n_group_bys);
+            });
+        } else {
+            // If the field is not a many2many field, continue with the existing flow
+            return self.on_data_loaded_count(data, n_group_bys);
+        }
+    },
 
 
 
@@ -244,6 +300,8 @@ return AbstractModel.extend({
 
 
     },
+
+
 
 
 
@@ -423,7 +481,7 @@ return AbstractModel.extend({
     },
 
 
-        //Get name get from model form name field
+    //Get name get from model form name field
     on_data_loaded_name_get: function(tasks, group_bys) {
         var self = this;
         var ids = _.pluck(tasks, "id");

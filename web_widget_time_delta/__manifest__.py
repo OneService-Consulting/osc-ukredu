@@ -4,7 +4,7 @@
     "summary": """Added Time Delta Human friedly for From and List""",
     "category": "Project",
     "images": ['static/description/icon.png'],
-    "version": "16.22.11.01.0",
+    "version": "16.0.23.01.12",
     "description": """
     
             update: round True
@@ -63,12 +63,18 @@
     'assets': {
 
         'web.assets_backend': [
-            'web_widget_time_delta/static/src/css/widget.css',
-            'web_widget_time_delta/static/src/lib/duration-picker/jquery-duration-picker.css',
-            'web_widget_time_delta/static/src/js/widget.js',
-            'web_widget_time_delta/static/src/lib/duration-humanize/humanize-duration.js',
-            'web_widget_time_delta/static/src/lib/duration-picker/jquery-duration-picker.js',
-            'web_widget_time_delta/static/src/xml/*.xml',
+            '/web_widget_time_delta/static/src/js/timedelta_field.js',
+            '/web_widget_time_delta/static/src/js/timedelta_field.xml',
+            '/web_widget_time_delta/static/src/css/timedelta_field.css',
+
+            '/web_widget_time_delta/static/src/lib/duration-picker/jquery-duration-picker.css',
+            '/web_widget_time_delta/static/src/lib/duration-humanize/humanize-duration.js',
+            '/web_widget_time_delta/static/src/lib/duration-picker/jquery-duration-picker.js',
+
+        ],
+
+        "web.assets_qweb": [
+            "/web_widget_time_delta/static/src/xml/qweb_template.xml",
         ],
     },
 

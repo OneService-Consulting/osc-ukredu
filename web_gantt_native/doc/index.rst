@@ -19,6 +19,9 @@ Info demo/video
 
 * History:
 
+  * ver: 2024-01-04:
+      * UPDATE: M2M fields for group by (use only first field), for exampe: associ
+
   * ver: 2022-08-24:
       * UPDATE: RTL and Pop up windows
 

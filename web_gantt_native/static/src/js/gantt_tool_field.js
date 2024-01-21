@@ -418,6 +418,11 @@ odoo.define('web_gantt_native.ToolField', function (require) {
                     value_format = moment(value_format);
                     group_name = field_utils.format[field.type](value_format, field, {timezone: false} );
                 }
+                //need check if many2many get name from record directly.
+                else if (field && field.type === "many2many"){
+                    group_name = task.name[1];
+                }
+
                 else{
                     try
                         {

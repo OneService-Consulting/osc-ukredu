@@ -1,5 +1,7 @@
 # duration-picker
+
 copy `bootstrap-duration-picker.css` and `bootstrap-duration-picker.js` files to your project.
+
 ## Dependencies
 
 - jQuery 1.*

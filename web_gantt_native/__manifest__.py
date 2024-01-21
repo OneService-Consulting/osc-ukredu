@@ -4,7 +4,7 @@
     "summary": """One price = web_gant_native, project_native, project_native_report_advance, project_native_exchange hr_holidays_gantt_native, mrp_gantt_native""",
     "category": "Project",
     "images": ['static/description/banner.gif'],
-    "version": "16.23.08.24.0",
+    "version": "16.24.01.04.0",
     "description": """
         Main Module for Gantt Native
 
